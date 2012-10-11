@@ -31,6 +31,7 @@
 		8679C5C4154E8C0400198B69 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 8679C5BF154E8C0400198B69 /* README.md */; };
 		8679C5C5154E8C0400198B69 /* OCMock-iPhone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8679C5C0154E8C0400198B69 /* OCMock-iPhone.framework */; };
 		8679C5D0154E903B00198B69 /* FakeCopyingArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 8679C5CF154E903B00198B69 /* FakeCopyingArray.m */; };
+		86E40889162715F0006CB185 /* ASViewController.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 86E40888162715F0006CB185 /* ASViewController.podspec */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -85,6 +86,7 @@
 		8679C5C0154E8C0400198B69 /* OCMock-iPhone.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = "OCMock-iPhone.framework"; sourceTree = "<group>"; };
 		8679C5CE154E903B00198B69 /* FakeCopyingArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FakeCopyingArray.h; sourceTree = "<group>"; };
 		8679C5CF154E903B00198B69 /* FakeCopyingArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FakeCopyingArray.m; sourceTree = "<group>"; };
+		86E40888162715F0006CB185 /* ASViewController.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ASViewController.podspec; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +136,7 @@
 		8679C559154E897D00198B69 = {
 			isa = PBXGroup;
 			children = (
+				86E40888162715F0006CB185 /* ASViewController.podspec */,
 				8679C56E154E897D00198B69 /* ASViewControllerExample */,
 				8679C595154E8BA600198B69 /* UISpecs */,
 				8679C5A4154E8C0400198B69 /* External */,
@@ -344,6 +347,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8679C573154E897D00198B69 /* InfoPlist.strings in Resources */,
+				86E40889162715F0006CB185 /* ASViewController.podspec in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -233,6 +233,10 @@ forObjectsPassingTest:(BOOL (^)(id obj, NSUInteger idx, BOOL *stop))predicate
                              options:(UIViewAnimationOptions)options animations:(void (^)(void))animations completion:(void (^)(BOOL finished))completion
 {
     if ([self useIOS5Implementations]) {
+        UIView* fromView = fromViewController.view;
+        UIView* toView = toViewController.view;
+        UIView* parentView = fromView.superview;
+        [parentView addSubview:toView];
         [super transitionFromViewController:fromViewController toViewController:toViewController duration:duration options:options animations:animations completion:completion];
     }
     else{
