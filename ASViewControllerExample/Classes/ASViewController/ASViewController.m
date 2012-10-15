@@ -232,11 +232,12 @@ forObjectsPassingTest:(BOOL (^)(id obj, NSUInteger idx, BOOL *stop))predicate
 - (void)transitionFromViewController:(UIViewController *)fromViewController toViewController:(UIViewController *)toViewController duration:(NSTimeInterval)duration 
                              options:(UIViewAnimationOptions)options animations:(void (^)(void))animations completion:(void (^)(BOOL finished))completion
 {
+    UIView* fromView = fromViewController.view;
+    UIView* toView = toViewController.view;
+    UIView* parentView = fromView.superview;
+    [parentView addSubview:toView];
+    
     if ([self useIOS5Implementations]) {
-        UIView* fromView = fromViewController.view;
-        UIView* toView = toViewController.view;
-        UIView* parentView = fromView.superview;
-        [parentView addSubview:toView];
         [super transitionFromViewController:fromViewController toViewController:toViewController duration:duration options:options animations:animations completion:completion];
     }
     else{
@@ -248,21 +249,13 @@ forObjectsPassingTest:(BOOL (^)(id obj, NSUInteger idx, BOOL *stop))predicate
         [fromViewController viewWillDisappear:animated];
         [toViewController viewWillAppear:animated];
         
-        void (^ OnTransitionEndedBlock)(BOOL finished) = ^(BOOL finished){
+        [UIView transitionWithView:parentView duration:duration options:options animations:animations completion:^(BOOL finished){
+            [fromView removeFromSuperview];
             if (completion) {
                 completion(finished);
             }
             [fromViewController viewDidDisappear:animated];
             [toViewController viewDidAppear:animated];
-        };
-        
-        UIView* fromView = fromViewController.view;
-        UIView* toView = toViewController.view;
-        UIView* parentView = fromView.superview;
-        [parentView addSubview:toView];
-        [UIView transitionWithView:parentView duration:duration options:options animations:animations completion:^(BOOL finished){
-            [fromView removeFromSuperview];
-            OnTransitionEndedBlock(finished);
         }];
     }
 }
